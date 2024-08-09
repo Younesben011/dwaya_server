@@ -12,7 +12,7 @@ import uploadRouter from "./routes/upload.js"
 import { isAuthenticated } from "./middlewares/authMiddleware.js"
 import { getImage } from "./controllers/images.js"
 dotenv.config()
-
+// sads
 
 // define constant
 const __filename = fileURLToPath(import.meta.url)
@@ -45,6 +45,7 @@ app.get("/pictures/:folder/:path", isAuthenticated, getImage);
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => {
+    
     app.listen(Port, Host, (err) => {
       if (err) {
         console.log(`connection error`)
