@@ -6,9 +6,9 @@ import { parse } from "dotenv"
 const router = express.Router()
 
 router.get("/",getPosts)
-router.post("/create",create)
-router.post("/patch",patch)
-router.post("/delete",remove)
+router.post("/create",isAuthenticated,create)
+router.post("/patch",isAuthenticated,patch)
+router.post("/delete",isAuthenticated,remove)
 router.post("/search",search)
 // ss
 export default router

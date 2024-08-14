@@ -38,7 +38,7 @@ app.get("/",(req,res)=>{
     res.send({message:"hi welcome "})
 })
 app.use("/auth", authRouter)
-app.use("/posts",isAuthenticated,postRouter)
+app.use("/posts",postRouter)
 app.use("/upload", isAuthenticated, uploadRouter);
 app.get("/pictures/:folder/:path", isAuthenticated, getImage);
 // mongodb connection
