@@ -1,7 +1,7 @@
 import express from "express"
 import { create, patch, remove,search,getPosts } from "../controllers/post.js"
 import { parse } from "dotenv"
-
+import { isAuthenticated } from "./middlewares/authMiddleware.js"
 
 const router = express.Router()
 
