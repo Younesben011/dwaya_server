@@ -65,7 +65,6 @@ export const register = async (req, res) => {
 
 // LOGIN
 export const login = async (req, res) => {
-  try {
     const { email, password } = req.body
     if (!email) {
       res.status(400).json({ msg: " email  is required" })
@@ -96,7 +95,4 @@ export const login = async (req, res) => {
       pharma_id: pharma._id,
       pharmaType: pharma.farmaType,
     })
-  } catch (err) {
-    res.status(500).json({ status: 500, error: err.message })
-  }
 }
