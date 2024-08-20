@@ -66,13 +66,16 @@ export const register = async (req, res) => {
 // LOGIN
 export const login = async (req, res) => {
     const { email, password } = req.body
+
     if (!email) {
+      console.log("no email")
       res.status(400).json({ msg: " email  is required" })
       return
     }
 
     const pharma = await Login.findOne({ email: email } )
     if (!pharma) {
+      console.log("pharma does not exist")
       res.status(400).json({ msg: "pharma does not exist. " })
       return
     }
@@ -80,6 +83,7 @@ export const login = async (req, res) => {
     const isMatch = await bcrypt.compare(password, pharma.password)
 
     if (!isMatch) {
+      console.log("Wrong email or  password.")
       res.status(400).json({ msg: "Wrong email or  password. " })
       return
     }
